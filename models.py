@@ -18,6 +18,7 @@ def connect_db(app):
 
 
 class Pet(db.Model):
+    """Pets"""
     __tablename__ = "pets"
 
 
