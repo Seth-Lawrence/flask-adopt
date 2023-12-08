@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% for pet in pets %}
+
+{{ pet.name }}
+{{ pet.species}}
+<img src= '{{pet.photo_url}}'>
+{{pet.available}}
+
+{% endfor %}
