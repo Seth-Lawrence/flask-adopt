@@ -1,16 +1,14 @@
-{% extends base.html %}
+{% extends 'base.html' %}
 
-{% content block %}
+{% block content %}
 
 
-{% for pet in pets %}
 
 {{ pet.name }}
-{{ pet.species}}
 <img src= '{{pet.photo_url}}'>
+{{ pet.species}}
+{{ pet.age}}
 {{pet.available}}
-
-{% endfor %}
 
 
 <form id="edit-form" method="POST">
@@ -31,6 +29,7 @@
 
   {% endfor %}
 
+  <button type="submit" formmethod="POST" formaction="/add" >Submit</button>
 </form>
 
 
