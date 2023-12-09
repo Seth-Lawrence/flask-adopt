@@ -17,9 +17,11 @@ class AddPetForm(FlaskForm):
     photo_url = StringField(
         "Photo URL",
         validators=[URL(require_tld=True)])
+    # put optional in front of URL. Since our validator says it needs to be a URL, we need to put optional
     age = SelectField(
         "Age",
         choices=[(1,"baby"),(2,"young"),(3,"adult"),(4,"senior")])
+        # coerce int
     notes = TextAreaField("Notes")
 
 

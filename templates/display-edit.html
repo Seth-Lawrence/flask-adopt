@@ -6,9 +6,8 @@
 
 {{ pet.name }}
 <img src= '{{pet.photo_url}}'>
-{{ pet.species}}
-{{ pet.age}}
-{{pet.available}}
+{{ pet.species }}
+{{ pet.age }}
 
 
 <form id="edit-form" method="POST">
@@ -29,7 +28,7 @@
 
   {% endfor %}
 
-  <button type="submit" formmethod="POST" formaction="/add" >Submit</button>
+  <button type="submit" formmethod="POST" formaction="/{{ pet.id }}" >Submit</button>
 </form>
 
 

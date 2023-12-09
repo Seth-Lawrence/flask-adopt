@@ -4,9 +4,16 @@
 
 {% for pet in pets %}
 
-{{ pet.name }}
-<img src= '{{pet.photo_url}}'>
-{{pet.available}}
+<a href="/{{ pet.id }}">{{ pet.name }}</a><br>
+<img src= '{{pet.photo_url}}'><br>
+
+<br>
+
+{% if pet.available %}
+  <b>AVAILABLE</b>
+{% else %}
+  UNAVAILABLE
+{% endif %}
 
 {% endfor %}
 

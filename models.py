@@ -55,3 +55,5 @@ class Pet(db.Model):
         default=True
         )
 
+    # add notes
+

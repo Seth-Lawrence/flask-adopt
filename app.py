@@ -48,7 +48,8 @@ def add_pet():
         notes = form.notes.data
 
         pet = Pet(
-            name=name,species=species, photo_url=photo_url,age=age)
+            name=name, species=species, photo_url=photo_url,age=age)
+            # Make this more legible add more apces and stuff
         db.session.add(pet)
         db.session.commit()
 
@@ -58,16 +59,34 @@ def add_pet():
         return render_template('pet-form.html', form=form)
 
 
-@app.route('/<int:pet_id>')
+@app.route('/<int:pet_id>', methods=["GET","POST"])
 def display_edit_form(pet_id):
     """displaying the add/edit form"""
 
     pet = Pet.query.get_or_404(pet_id)
     form = AddPetForm(obj=pet)
 
-    return render_template('display-edit.html',
-                           pet=pet,
-                           form=form)
+
+
+    if form.validate_on_submit():
+
+        print("pet", pet)
+
+        pet.name = form.name.data
+        pet.species = form.species.data
+        pet.photo_url = form.photo_url.data
+        pet.age = form.age.data
+        pet.notes = form.notes.data
+        #  We just added a property. Be nervous that it didn't throw an error
+
+        db.session.commit()
+
+        return redirect("/")
+    else:
+
+        return render_template('display-edit.html',
+                            pet=pet,
+                            form=form)
 
 
 
