@@ -1,1 +1,14 @@
 {% extends 'base.html' %}
+
+{% block content %}
+<form id="pet-add-form" method="POST">
+  {{ form.hidden_tag() }} <!--add type=hidden form fields -->
+
+  {{ form.name }}
+
+
+
+  <button type="submit">Submit</button>
+</form>
+
+{% endblock %}

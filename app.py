@@ -7,7 +7,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from forms import AddPetForm
 
 
-from models import connect_db, Pet
+from models import connect_db, Pet, db
 
 app = Flask(__name__)
 
@@ -31,7 +31,7 @@ def root():
 
     pets = Pet.query.all()
 
-    return render_template('index.html', pets = pets)
+    return render_template('index.html', pets=pets)
 
 
 @app.route('/add', methods=["GET","POST"])
